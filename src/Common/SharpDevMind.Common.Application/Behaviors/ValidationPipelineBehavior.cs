@@ -5,7 +5,7 @@ using MediatR;
 using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Domain;
 
-namespace Evently.Common.Application.Behaviors;
+namespace SharpDevMind.Common.Application.Behaviors;
 
 internal sealed class ValidationPipelineBehavior<TRequest, TResponse>(
     IEnumerable<IValidator<TRequest>> validators)

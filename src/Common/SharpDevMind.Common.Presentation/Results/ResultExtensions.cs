@@ -1,6 +1,6 @@
 ﻿using SharpDevMind.Common.Domain;
 
-namespace SharpDevMind.Modules.Users.Presentation.Results;
+namespace SharpDevMind.Common.Presentation.Results;
 
 public static class ResultExtensions
 {

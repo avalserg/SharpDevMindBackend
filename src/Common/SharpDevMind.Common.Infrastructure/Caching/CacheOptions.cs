@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 
-namespace Evently.Common.Infrastructure.Caching;
+namespace SharpDevMind.Common.Infrastructure.Caching;
 
 public static class CacheOptions
 {

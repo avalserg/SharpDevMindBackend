@@ -3,14 +3,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Common.Presentation.Results;
 using SharpDevMind.Modules.Users.Application.Users.RegisterUser;
-using SharpDevMind.Modules.Users.Presentation.Results;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 
-internal static class RegisterUser
+internal sealed class RegisterUser : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPost("users/register", async (Request request, ISender sender) =>
         {
@@ -20,7 +21,7 @@ internal static class RegisterUser
                 request.FirstName,
                 request.LastName));
 
-            return result.Match<Guid, IResult>(Microsoft.AspNetCore.Http.Results.Ok, ApiResults.Problem);
+            return result.Match(Results.Ok, ApiResults.Problem);
         })
         .AllowAnonymous()
         .WithTags(Tags.Users);

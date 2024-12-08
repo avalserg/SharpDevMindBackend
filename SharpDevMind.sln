@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Infrastructure", "src\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj", "{164A287A-E286-43A4-8073-8E42976CF625}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Presentation", "src\Common\SharpDevMind.Common.Presentation\SharpDevMind.Common.Presentation.csproj", "{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{164A287A-E286-43A4-8073-8E42976CF625}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{164A287A-E286-43A4-8073-8E42976CF625}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{164A287A-E286-43A4-8073-8E42976CF625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{42F76CA8-D92C-4340-9B31-381E88D70960} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
 		{648D4C83-1C06-4C90-B0D7-4DEE00DF950C} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
 		{164A287A-E286-43A4-8073-8E42976CF625} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
+		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6571E6EB-3D5A-4AFF-A138-0F7F36959734}

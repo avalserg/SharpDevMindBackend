@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Evently.Common.Application.Behaviors;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using SharpDevMind.Common.Application.Behaviors;

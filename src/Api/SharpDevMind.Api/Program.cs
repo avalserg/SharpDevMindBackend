@@ -5,6 +5,7 @@ using SharpDevMind.Api.Extensions;
 using SharpDevMind.Api.Middleware;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
+using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Infrastructure;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -51,8 +52,7 @@ app.MapHealthChecks("health", new HealthCheckOptions
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
-UsersModule.MapEndpoints(app);
-
+app.MapEndpoints();
 
 app.UseSerilogRequestLogging();
 

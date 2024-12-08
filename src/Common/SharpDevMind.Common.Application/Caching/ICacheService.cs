@@ -1,4 +1,4 @@
-﻿namespace Evently.Common.Application.Caching;
+﻿namespace SharpDevMind.Common.Application.Caching;
 
 public interface ICacheService
 {

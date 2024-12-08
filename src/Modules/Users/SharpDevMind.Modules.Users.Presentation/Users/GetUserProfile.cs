@@ -1,17 +1,18 @@
-﻿using Evently.Common.Application.Caching;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using SharpDevMind.Common.Application.Caching;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Common.Presentation.Results;
 using SharpDevMind.Modules.Users.Application.Users.GetUser;
-using SharpDevMind.Modules.Users.Presentation.Results;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 
-internal static class GetUserProfile
+internal sealed class GetUserProfile : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapGet("users/{id}", async (Guid id, ISender sender, ICacheService cacheService) =>
             {
@@ -19,7 +20,7 @@ internal static class GetUserProfile
 
                 if (userResponse is not null)
                 {
-                    return Microsoft.AspNetCore.Http.Results.Ok(userResponse);
+                    return Results.Ok(userResponse);
                 }
                 Result<UserResponse> result = await sender.Send(new GetUserQuery(id));
 
@@ -28,7 +29,7 @@ internal static class GetUserProfile
                     await cacheService.SetAsync("users", result.Value);
                 }
 
-                return result.Match(Microsoft.AspNetCore.Http.Results.Ok, ApiResults.Problem);
+                return result.Match(Results.Ok, ApiResults.Problem);
             })
         .WithTags(Tags.Users);
     }

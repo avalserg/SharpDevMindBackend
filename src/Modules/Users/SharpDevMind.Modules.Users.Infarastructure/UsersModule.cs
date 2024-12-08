@@ -1,34 +1,22 @@
-﻿using FluentValidation;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharpDevMind.Common.Application.Data;
+using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
-using SharpDevMind.Modules.Users.Presentation.Users;
 
 namespace SharpDevMind.Modules.Users.Infrastructure;
 
 public static class UsersModule
 {
-    public static void MapEndpoints(IEndpointRouteBuilder app)
-    {
-        EventEndpoints.MapEndpoints(app);
-    }
-
     public static IServiceCollection AddUsersModule(
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddMediatR(config =>
-        {
-            config.RegisterServicesFromAssembly(Application.AssemblyReference.Assembly);
-        });
-
-        services.AddValidatorsFromAssembly(Application.AssemblyReference.Assembly, includeInternalTypes: true);
+        services.AddEndpoints(Presentation.AssemblyReference.Assembly);
 
         services.AddInfrastructure(configuration);
 

@@ -1,9 +1,9 @@
 ﻿using System.Buffers;
 using System.Text.Json;
-using Evently.Common.Application.Caching;
 using Microsoft.Extensions.Caching.Distributed;
+using SharpDevMind.Common.Application.Caching;
 
-namespace Evently.Common.Infrastructure.Caching;
+namespace SharpDevMind.Common.Infrastructure.Caching;
 
 internal sealed class CacheService(IDistributedCache cache) : ICacheService
 {

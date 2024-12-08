@@ -3,14 +3,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Common.Presentation.Results;
 using SharpDevMind.Modules.Users.Application.Users.UpdateUser;
-using SharpDevMind.Modules.Users.Presentation.Results;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 
-internal static class UpdateUserProfile
+internal sealed class UpdateUserProfile : IEndpoint
 {
-    public static void MapEndpoint(IEndpointRouteBuilder app)
+    public void MapEndpoint(IEndpointRouteBuilder app)
     {
         app.MapPut("users/profile/{id}", async (Request request, Guid id, ISender sender) =>
         {
@@ -19,7 +20,7 @@ internal static class UpdateUserProfile
                 request.FirstName,
                 request.LastName));
 
-            return result.Match(Microsoft.AspNetCore.Http.Results.NoContent, ApiResults.Problem);
+            return result.Match(Results.NoContent, ApiResults.Problem);
         })
         .WithTags(Tags.Users);
     }
