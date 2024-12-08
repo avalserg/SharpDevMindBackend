@@ -20,7 +20,9 @@ builder.Configuration.AddModuleConfiguration(["users"]);
 
 builder.Services.AddApplication([SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly]);
 
-builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("Database")!);
+builder.Services.AddInfrastructure(
+    builder.Configuration.GetConnectionString("Database")!,
+    builder.Configuration.GetConnectionString("Cache")!);
 
 builder.Services.AddUsersModule(builder.Configuration);
 

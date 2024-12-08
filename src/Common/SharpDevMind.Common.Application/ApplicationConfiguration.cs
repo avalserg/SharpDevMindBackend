@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Evently.Common.Application.Behaviors;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using SharpDevMind.Common.Application.Behaviors;
@@ -18,6 +19,9 @@ public static class ApplicationConfiguration
             config.AddOpenBehavior(typeof(ExceptionHandlingPipelineBehavior<,>));
 
             config.AddOpenBehavior(typeof(RequestLoggingPipelineBehavior<,>));
+
+            config.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
+
         });
 
         services.AddValidatorsFromAssemblies(moduleAssemblies, includeInternalTypes: true);
