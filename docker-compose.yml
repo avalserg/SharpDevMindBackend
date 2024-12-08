@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  sharpdevmind.api:
+    image: ${DOCKER_REGISTRY-}sharpdevmindapi
+    container_name: SharpDevMind.Api
+    build:
+      context: .
+      dockerfile: src/Api/SharpDevMind.Api/Dockerfile
+    ports:
+        - 7000:8080
+        - 7001:8081  
+  
+  sharpdevmind.database:
+    image: postgres:latest
+    container_name: SharpDevMind.Database
+    environment:
+      - POSTGRES_DB=sharpdevmind
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

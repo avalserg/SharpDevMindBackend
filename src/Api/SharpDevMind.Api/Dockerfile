@@ -9,7 +9,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+COPY ["Directory.Build.props", "."]
 COPY ["src/Api/SharpDevMind.Api/SharpDevMind.Api.csproj", "src/Api/SharpDevMind.Api/"]
+COPY ["src/Modules/Users/SharpDevMind.Modules.Users.Infarastructure/SharpDevMind.Modules.Users.Infrastructure.csproj", "src/Modules/Users/SharpDevMind.Modules.Users.Infarastructure/"]
+COPY ["src/Modules/Users/SharpDevMind.Modules.Users.Application/SharpDevMind.Modules.Users.Application.csproj", "src/Modules/Users/SharpDevMind.Modules.Users.Application/"]
+COPY ["src/Modules/Users/SharpDevMind.Modules.Users.Domain/SharpDevMind.Modules.Users.Domain.csproj", "src/Modules/Users/SharpDevMind.Modules.Users.Domain/"]
+COPY ["src/Modules/Users/SharpDevMind.Modules.Users.Presentation/SharpDevMind.Modules.Users.Presentation.csproj", "src/Modules/Users/SharpDevMind.Modules.Users.Presentation/"]
 RUN dotnet restore "./src/Api/SharpDevMind.Api/./SharpDevMind.Api.csproj"
 COPY . .
 WORKDIR "/src/src/Api/SharpDevMind.Api"
