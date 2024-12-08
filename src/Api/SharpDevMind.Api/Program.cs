@@ -9,6 +9,8 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
 
+builder.Configuration.AddModuleConfiguration(["users"]);
+
 builder.Services.AddApplication([SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly]);
 
 builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("Database")!);
