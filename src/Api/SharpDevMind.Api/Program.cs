@@ -1,10 +1,13 @@
-using Evently.Api.Extensions;
+using Serilog;
 using SharpDevMind.Api.Extensions;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
 using SharpDevMind.Modules.Users.Infrastructure;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, loggerConfiguration) =>
+    loggerConfiguration.ReadFrom.Configuration(context.Configuration));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
@@ -27,6 +30,9 @@ if (app.Environment.IsDevelopment())
     app.ApplyMigrations();
 }
 UsersModule.MapEndpoints(app);
+
+
+app.UseSerilogRequestLogging();
 
 app.Run();
 
