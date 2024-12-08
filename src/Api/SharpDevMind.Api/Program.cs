@@ -1,3 +1,5 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
 using SharpDevMind.Api.Extensions;
 using SharpDevMind.Api.Middleware;
@@ -20,9 +22,17 @@ builder.Configuration.AddModuleConfiguration(["users"]);
 
 builder.Services.AddApplication([SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly]);
 
+string databaseConnectionString = builder.Configuration.GetConnectionString("Database")!;
+string redisConnectionString = builder.Configuration.GetConnectionString("Cache")!;
+
 builder.Services.AddInfrastructure(
-    builder.Configuration.GetConnectionString("Database")!,
-    builder.Configuration.GetConnectionString("Cache")!);
+    databaseConnectionString,
+    redisConnectionString);
+
+
+builder.Services.AddHealthChecks()
+    .AddNpgSql(databaseConnectionString)
+    .AddRedis(redisConnectionString);
 
 builder.Services.AddUsersModule(builder.Configuration);
 
@@ -35,6 +45,12 @@ if (app.Environment.IsDevelopment())
 
     app.ApplyMigrations();
 }
+
+app.MapHealthChecks("health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
 UsersModule.MapEndpoints(app);
 
 
