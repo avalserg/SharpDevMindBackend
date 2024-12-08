@@ -3,6 +3,7 @@ using Dapper;
 using SharpDevMind.Common.Application.Data;
 using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Modules.Users.Domain.Users;
 
 namespace SharpDevMind.Modules.Users.Application.Users.GetUser;
 
@@ -25,6 +26,11 @@ internal sealed class GetUserQueryHandler(IDbConnectionFactory dbConnectionFacto
              """;
 
         UserResponse? user = await connection.QuerySingleOrDefaultAsync<UserResponse>(sql, request);
+
+        if (user is null)
+        {
+            return Result.Failure<UserResponse>(UserErrors.NotFound(request.UserId));
+        }
 
         return user;
     }

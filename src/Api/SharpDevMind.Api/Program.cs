@@ -1,5 +1,6 @@
 using Serilog;
 using SharpDevMind.Api.Extensions;
+using SharpDevMind.Api.Middleware;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
 using SharpDevMind.Modules.Users.Infrastructure;
@@ -8,6 +9,9 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, loggerConfiguration) =>
     loggerConfiguration.ReadFrom.Configuration(context.Configuration));
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
@@ -33,6 +37,8 @@ UsersModule.MapEndpoints(app);
 
 
 app.UseSerilogRequestLogging();
+
+app.UseExceptionHandler();
 
 app.Run();
 
