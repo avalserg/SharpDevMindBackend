@@ -1,0 +1,6 @@
+@SharpDevMind.Api_HostAddress = http://localhost:5096
+
+GET {{SharpDevMind.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
