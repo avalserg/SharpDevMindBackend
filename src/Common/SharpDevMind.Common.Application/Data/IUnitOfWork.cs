@@ -1,4 +1,4 @@
-﻿namespace SharpDevMind.Modules.Users.Application.Abstractions.Data;
+﻿namespace SharpDevMind.Common.Application.Data;
 
 public interface IUnitOfWork
 {

@@ -1,4 +1,4 @@
-﻿using Evently.Common.Application.Messaging;
+﻿using SharpDevMind.Common.Application.Messaging;
 
 namespace SharpDevMind.Modules.Users.Application.Users.GetUser;
 

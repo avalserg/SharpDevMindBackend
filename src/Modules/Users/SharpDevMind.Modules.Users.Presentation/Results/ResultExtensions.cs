@@ -1,6 +1,6 @@
-﻿using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Domain;
 
-namespace Evently.Common.Presentation.Results;
+namespace SharpDevMind.Modules.Users.Presentation.Results;
 
 public static class ResultExtensions
 {

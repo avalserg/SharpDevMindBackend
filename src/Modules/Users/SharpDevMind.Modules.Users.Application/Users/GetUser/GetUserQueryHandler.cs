@@ -1,8 +1,8 @@
 ﻿using System.Data.Common;
 using Dapper;
-using Evently.Common.Application.Messaging;
-using SharpDevMind.Modules.Users.Application.Abstractions.Data;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
+using SharpDevMind.Common.Application.Data;
+using SharpDevMind.Common.Application.Messaging;
+using SharpDevMind.Common.Domain;
 
 namespace SharpDevMind.Modules.Users.Application.Users.GetUser;
 

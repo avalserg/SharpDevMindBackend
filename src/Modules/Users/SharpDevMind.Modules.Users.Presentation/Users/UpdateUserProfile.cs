@@ -1,13 +1,12 @@
-﻿using Evently.Common.Presentation.Results;
-using Evently.Modules.Users.Application.Users.UpdateUser;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
-using SharpDevMind.Modules.Users.Presentation;
+using SharpDevMind.Common.Domain;
+using SharpDevMind.Modules.Users.Application.Users.UpdateUser;
+using SharpDevMind.Modules.Users.Presentation.Results;
 
-namespace Evently.Modules.Users.Presentation.Users;
+namespace SharpDevMind.Modules.Users.Presentation.Users;
 
 internal static class UpdateUserProfile
 {
@@ -20,7 +19,7 @@ internal static class UpdateUserProfile
                 request.FirstName,
                 request.LastName));
 
-            return result.Match(Results.NoContent, ApiResults.Problem);
+            return result.Match(Microsoft.AspNetCore.Http.Results.NoContent, ApiResults.Problem);
         })
         .WithTags(Tags.Users);
     }

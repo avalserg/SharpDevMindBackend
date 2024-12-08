@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+
+	<ItemGroup>
+		<PackageReference Include="EFCore.NamingConventions" Version="8.0.3" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.2" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharpDevMind.Common.Application\SharpDevMind.Common.Application.csproj" />
+  </ItemGroup>
+
+</Project>

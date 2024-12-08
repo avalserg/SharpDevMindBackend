@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace SharpDevMind.Modules.Users.Domain.Abstractions;
+namespace SharpDevMind.Common.Domain;
 
 public class Result
 {

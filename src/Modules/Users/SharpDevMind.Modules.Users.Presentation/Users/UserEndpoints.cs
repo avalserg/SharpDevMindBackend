@@ -1,5 +1,4 @@
-﻿using Evently.Modules.Users.Presentation.Users;
-using Microsoft.AspNetCore.Routing;
+﻿using Microsoft.AspNetCore.Routing;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 

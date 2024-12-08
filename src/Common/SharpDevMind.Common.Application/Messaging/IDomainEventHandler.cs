@@ -1,6 +1,6 @@
-﻿using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Domain;
 
-namespace Evently.Common.Application.Messaging;
+namespace SharpDevMind.Common.Application.Messaging;
 
 public interface IDomainEventHandler<in TDomainEvent> : IDomainEventHandler
     where TDomainEvent : IDomainEvent

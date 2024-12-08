@@ -1,10 +1,9 @@
-﻿using Evently.Common.Application.Messaging;
-using Evently.Modules.Users.Domain.Users;
-using SharpDevMind.Modules.Users.Application.Abstractions.Data;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Application.Data;
+using SharpDevMind.Common.Application.Messaging;
+using SharpDevMind.Common.Domain;
 using SharpDevMind.Modules.Users.Domain.Users;
 
-namespace Evently.Modules.Users.Application.Users.UpdateUser;
+namespace SharpDevMind.Modules.Users.Application.Users.UpdateUser;
 
 internal sealed class UpdateUserCommandHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
     : ICommandHandler<UpdateUserCommand>

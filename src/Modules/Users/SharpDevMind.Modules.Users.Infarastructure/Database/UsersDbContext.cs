@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SharpDevMind.Modules.Users.Application.Abstractions.Data;
+using SharpDevMind.Common.Application.Data;
 using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
 

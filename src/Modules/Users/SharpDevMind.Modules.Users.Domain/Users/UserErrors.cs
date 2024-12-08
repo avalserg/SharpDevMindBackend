@@ -1,6 +1,6 @@
-﻿using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Domain;
 
-namespace Evently.Modules.Users.Domain.Users;
+namespace SharpDevMind.Modules.Users.Domain.Users;
 
 public static class UserErrors
 {

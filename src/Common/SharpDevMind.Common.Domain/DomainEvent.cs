@@ -1,4 +1,4 @@
-﻿namespace SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿namespace SharpDevMind.Common.Domain;
 
 public abstract class DomainEvent : IDomainEvent
 {

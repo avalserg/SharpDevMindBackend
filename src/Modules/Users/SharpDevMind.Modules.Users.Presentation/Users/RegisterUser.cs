@@ -1,10 +1,10 @@
-﻿using Evently.Common.Presentation.Results;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using SharpDevMind.Common.Domain;
 using SharpDevMind.Modules.Users.Application.Users.RegisterUser;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
+using SharpDevMind.Modules.Users.Presentation.Results;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 
@@ -20,7 +20,7 @@ internal static class RegisterUser
                 request.FirstName,
                 request.LastName));
 
-            return result.Match(Results.Ok, ApiResults.Problem);
+            return result.Match<Guid, IResult>(Microsoft.AspNetCore.Http.Results.Ok, ApiResults.Problem);
         })
         .AllowAnonymous()
         .WithTags(Tags.Users);

@@ -1,6 +1,6 @@
-﻿using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Domain;
 
-namespace SharpDevMind.Modules.Users.Application.Abstractions.Exceptions;
+namespace SharpDevMind.Common.Application.Exceptions;
 
 public sealed class SharpDevMindException : Exception
 {

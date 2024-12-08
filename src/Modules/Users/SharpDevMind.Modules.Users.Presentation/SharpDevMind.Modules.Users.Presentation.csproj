@@ -5,6 +5,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\SharpDevMind.Modules.Users.Application\SharpDevMind.Modules.Users.Application.csproj" />
   </ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Evently.Modules.Users.Application.Users.UpdateUser;
+namespace SharpDevMind.Modules.Users.Application.Users.UpdateUser;
 
 internal sealed class UpdateUserCommandValidator : AbstractValidator<UpdateUserCommand>
 {

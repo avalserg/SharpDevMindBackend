@@ -1,16 +1,11 @@
-﻿using Evently.Common.Infrastructure.Clock;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Npgsql;
-using SharpDevMind.Modules.Users.Application.Abstractions.Clock;
-using SharpDevMind.Modules.Users.Application.Abstractions.Data;
+using SharpDevMind.Common.Application.Data;
 using SharpDevMind.Modules.Users.Domain.Users;
-using SharpDevMind.Modules.Users.Infrastructure.Data;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
 using SharpDevMind.Modules.Users.Presentation.Users;
@@ -42,19 +37,13 @@ public static class UsersModule
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
-
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
 
-        NpgsqlDataSource npgsqlDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
-        services.TryAddSingleton(npgsqlDataSource);
-
-        services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 
         services.AddDbContext<UsersDbContext>((sp, options) =>
             options
                 .UseNpgsql(
-                    configuration.GetConnectionString("Database"),
+                    databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Users))
                 .UseSnakeCaseNamingConvention());

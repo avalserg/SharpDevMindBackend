@@ -1,4 +1,4 @@
-﻿using SharpDevMind.Modules.Users.Domain.Abstractions;
+﻿using SharpDevMind.Common.Domain;
 
 namespace SharpDevMind.Modules.Users.Domain.Users;
 

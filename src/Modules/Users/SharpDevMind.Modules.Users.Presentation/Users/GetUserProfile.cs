@@ -2,8 +2,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using SharpDevMind.Common.Domain;
 using SharpDevMind.Modules.Users.Application.Users.GetUser;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
+using SharpDevMind.Modules.Users.Presentation.Results;
 
 namespace SharpDevMind.Modules.Users.Presentation.Users;
 
@@ -15,7 +16,7 @@ internal static class GetUserProfile
         {
             Result<UserResponse> result = await sender.Send(new GetUserQuery(id));
 
-            return result is null ? Results.NotFound() : Results.Ok(result);
+            return result.Match(Microsoft.AspNetCore.Http.Results.Ok, ApiResults.Problem);
         })
         .WithTags(Tags.Users);
     }

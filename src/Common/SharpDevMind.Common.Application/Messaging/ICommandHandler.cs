@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using SharpDevMind.Modules.Users.Domain.Abstractions;
+using SharpDevMind.Common.Domain;
 
-namespace Evently.Common.Application.Messaging;
+namespace SharpDevMind.Common.Application.Messaging;
 
 public interface ICommandHandler<in TCommand> : IRequestHandler<TCommand, Result>
     where TCommand : ICommand;

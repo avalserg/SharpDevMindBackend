@@ -1,6 +1,6 @@
-﻿using Evently.Common.Domain;
+﻿using SharpDevMind.Common.Domain;
 
-namespace Evently.Common.Application.Messaging;
+namespace SharpDevMind.Common.Application.Messaging;
 
 public abstract class DomainEventHandler<TDomainEvent> : IDomainEventHandler<TDomainEvent>
     where TDomainEvent : IDomainEvent

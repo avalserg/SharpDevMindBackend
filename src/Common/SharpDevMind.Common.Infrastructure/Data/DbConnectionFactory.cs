@@ -1,8 +1,8 @@
 ﻿using System.Data.Common;
 using Npgsql;
-using SharpDevMind.Modules.Users.Application.Abstractions.Data;
+using SharpDevMind.Common.Application.Data;
 
-namespace SharpDevMind.Modules.Users.Infrastructure.Data;
+namespace SharpDevMind.Common.Infrastructure.Data;
 
 internal sealed class DbConnectionFactory(NpgsqlDataSource dataSource) : IDbConnectionFactory
 {

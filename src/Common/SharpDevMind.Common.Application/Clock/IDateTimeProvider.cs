@@ -1,4 +1,4 @@
-﻿namespace SharpDevMind.Modules.Users.Application.Abstractions.Clock;
+﻿namespace SharpDevMind.Common.Application.Clock;
 
 public interface IDateTimeProvider
 {
