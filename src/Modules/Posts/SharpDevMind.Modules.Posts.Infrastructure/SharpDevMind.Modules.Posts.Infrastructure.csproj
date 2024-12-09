@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharpDevMind.Modules.Posts.Application\SharpDevMind.Modules.Posts.Application.csproj" />
+    <ProjectReference Include="..\SharpDevMind.Modules.Posts.Presentation\SharpDevMind.Modules.Posts.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

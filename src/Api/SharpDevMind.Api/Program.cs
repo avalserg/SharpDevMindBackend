@@ -6,6 +6,7 @@ using SharpDevMind.Api.Middleware;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
 using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Modules.Posts.Infrastructure;
 using SharpDevMind.Modules.Users.Infrastructure;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -19,9 +20,12 @@ builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
 
-builder.Configuration.AddModuleConfiguration(["users"]);
+builder.Configuration.AddModuleConfiguration(["users", "posts"]);
 
-builder.Services.AddApplication([SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly]);
+builder.Services.AddApplication([
+    SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly,
+    SharpDevMind.Modules.Posts.Application.AssemblyReference.Assembly
+]);
 
 string databaseConnectionString = builder.Configuration.GetConnectionString("Database")!;
 string redisConnectionString = builder.Configuration.GetConnectionString("Cache")!;
@@ -36,6 +40,7 @@ builder.Services.AddHealthChecks()
     .AddRedis(redisConnectionString);
 
 builder.Services.AddUsersModule(builder.Configuration);
+builder.Services.AddPostsModule(builder.Configuration);
 
 WebApplication app = builder.Build();
 
