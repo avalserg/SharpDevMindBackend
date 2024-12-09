@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{6F53
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5E41F007-B8ED-42A1-BAB4-2B2A20617583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Api", "src\Api\SharpDevMind.Api\SharpDevMind.Api.csproj", "{18496F12-FA6C-46EE-8D37-2DA3777FA62E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Api", "src\Api\SharpDevMind.Api\SharpDevMind.Api.csproj", "{18496F12-FA6C-46EE-8D37-2DA3777FA62E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{EE23CE00-EF9A-45C8-970E-8D91F73C2663}"
 	ProjectSection(SolutionItems) = preProject
@@ -25,21 +25,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{691F65E9
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{16B85F22-E32E-435D-BADF-7F6128F8625E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.Domain", "src\Modules\Users\SharpDevMind.Modules.Users.Domain\SharpDevMind.Modules.Users.Domain.csproj", "{71CECB86-6EBF-426C-98DB-D5406E424AF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.Domain", "src\Modules\Users\SharpDevMind.Modules.Users.Domain\SharpDevMind.Modules.Users.Domain.csproj", "{71CECB86-6EBF-426C-98DB-D5406E424AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.Application", "src\Modules\Users\SharpDevMind.Modules.Users.Application\SharpDevMind.Modules.Users.Application.csproj", "{1A5D5C69-7BD2-4774-9FCD-6F95D44E3D76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.Application", "src\Modules\Users\SharpDevMind.Modules.Users.Application\SharpDevMind.Modules.Users.Application.csproj", "{1A5D5C69-7BD2-4774-9FCD-6F95D44E3D76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.Infrastructure", "src\Modules\Users\SharpDevMind.Modules.Users.Infarastructure\SharpDevMind.Modules.Users.Infrastructure.csproj", "{4C9A00FB-A074-4D76-B007-09DA3635A3DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.Infrastructure", "src\Modules\Users\SharpDevMind.Modules.Users.Infarastructure\SharpDevMind.Modules.Users.Infrastructure.csproj", "{4C9A00FB-A074-4D76-B007-09DA3635A3DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.Presentation", "src\Modules\Users\SharpDevMind.Modules.Users.Presentation\SharpDevMind.Modules.Users.Presentation.csproj", "{E3056BDA-6BCC-4D07-9AB9-4B5495698BAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.Presentation", "src\Modules\Users\SharpDevMind.Modules.Users.Presentation\SharpDevMind.Modules.Users.Presentation.csproj", "{E3056BDA-6BCC-4D07-9AB9-4B5495698BAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Application", "src\Common\SharpDevMind.Common.Application\SharpDevMind.Common.Application.csproj", "{42F76CA8-D92C-4340-9B31-381E88D70960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Common.Application", "src\Common\SharpDevMind.Common.Application\SharpDevMind.Common.Application.csproj", "{42F76CA8-D92C-4340-9B31-381E88D70960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Domain", "src\Common\SharpDevMind.Common.Domain\SharpDevMind.Common.Domain.csproj", "{648D4C83-1C06-4C90-B0D7-4DEE00DF950C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Common.Domain", "src\Common\SharpDevMind.Common.Domain\SharpDevMind.Common.Domain.csproj", "{648D4C83-1C06-4C90-B0D7-4DEE00DF950C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Infrastructure", "src\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj", "{164A287A-E286-43A4-8073-8E42976CF625}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Common.Infrastructure", "src\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj", "{164A287A-E286-43A4-8073-8E42976CF625}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Common.Presentation", "src\Common\SharpDevMind.Common.Presentation\SharpDevMind.Common.Presentation.csproj", "{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Common.Presentation", "src\Common\SharpDevMind.Common.Presentation\SharpDevMind.Common.Presentation.csproj", "{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posts", "Posts", "{518060E1-F660-442A-BF2B-5C0759EA0433}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Application", "src\Modules\Posts\SharpDevMind.Modules.Posts.Application\SharpDevMind.Modules.Posts.Application.csproj", "{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Domain", "src\Modules\Posts\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Posts.Domain.csproj", "{2E430FFC-B261-4ACE-A2CD-983A514095FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Infrastructure", "src\Modules\Posts\SharpDevMind.Modules.Posts.Infrastructure\SharpDevMind.Modules.Posts.Infrastructure.csproj", "{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Presentation", "src\Modules\Posts\SharpDevMind.Modules.Posts.Presentation\SharpDevMind.Modules.Posts.Presentation.csproj", "{988D2BA3-3928-4659-836D-093766A6BDBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +97,22 @@ Global
 		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E430FFC-B261-4ACE-A2CD-983A514095FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E430FFC-B261-4ACE-A2CD-983A514095FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E430FFC-B261-4ACE-A2CD-983A514095FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E430FFC-B261-4ACE-A2CD-983A514095FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{988D2BA3-3928-4659-836D-093766A6BDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988D2BA3-3928-4659-836D-093766A6BDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988D2BA3-3928-4659-836D-093766A6BDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988D2BA3-3928-4659-836D-093766A6BDBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +132,11 @@ Global
 		{648D4C83-1C06-4C90-B0D7-4DEE00DF950C} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
 		{164A287A-E286-43A4-8073-8E42976CF625} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
 		{3DC6BB5C-8B3D-47CC-A8A0-B3498F7B5D6D} = {833A0BD8-F6D4-427F-8EEE-766A8C418174}
+		{518060E1-F660-442A-BF2B-5C0759EA0433} = {6F5368AA-71E4-482B-81B7-9C8931CE6015}
+		{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40} = {518060E1-F660-442A-BF2B-5C0759EA0433}
+		{2E430FFC-B261-4ACE-A2CD-983A514095FC} = {518060E1-F660-442A-BF2B-5C0759EA0433}
+		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09} = {518060E1-F660-442A-BF2B-5C0759EA0433}
+		{988D2BA3-3928-4659-836D-093766A6BDBD} = {518060E1-F660-442A-BF2B-5C0759EA0433}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6571E6EB-3D5A-4AFF-A138-0F7F36959734}
