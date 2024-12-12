@@ -1,24 +1,24 @@
 ﻿using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Domain;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
+using SharpDevMind.Modules.Posts.Domain.Authors;
 using SharpDevMind.Modules.Posts.Domain.Categories;
 using SharpDevMind.Modules.Posts.Domain.Posts;
-using SharpDevMind.Modules.Users.PublicApi;
 
 namespace SharpDevMind.Modules.Posts.Application.Posts.CreatePost;
 
 internal sealed class CreatePostCommandHandler(
     ICategoryRepository categoryRepository,
     IPostRepository eventRepository,
-    IUsersApi usersApi,
+    IAuthorRepository authorRepository,
     IUnitOfWork unitOfWork)
     : ICommandHandler<CreatePostCommand, Guid>
 {
     public async Task<Result<Guid>> Handle(CreatePostCommand request, CancellationToken cancellationToken)
     {
-        UserResponse user = await usersApi.GetAsync(request.UserId, cancellationToken);
+        Author author = await authorRepository.GetAsync(request.UserId, cancellationToken);
 
-        if (user == null)
+        if (author == null)
         {
             return Result.Failure<Guid>(PostErrors.OwnerNotFound(request.UserId));
         }
@@ -31,7 +31,7 @@ internal sealed class CreatePostCommandHandler(
         }
 
         Result<Post> result = Post.Create(
-            user.Id,
+            author.Id,
             category,
             request.Title,
             request.Content);

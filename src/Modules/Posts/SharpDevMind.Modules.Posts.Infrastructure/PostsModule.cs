@@ -4,11 +4,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
+using SharpDevMind.Modules.Posts.Domain.Authors;
 using SharpDevMind.Modules.Posts.Domain.Categories;
 using SharpDevMind.Modules.Posts.Domain.Posts;
+using SharpDevMind.Modules.Posts.Infrastructure.Authors;
 using SharpDevMind.Modules.Posts.Infrastructure.Categories;
 using SharpDevMind.Modules.Posts.Infrastructure.Database;
 using SharpDevMind.Modules.Posts.Infrastructure.Posts;
+using SharpDevMind.Modules.Posts.Infrastructure.PublicApi;
+using SharpDevMind.Modules.Posts.PublicApi;
 
 namespace SharpDevMind.Modules.Posts.Infrastructure;
 
@@ -38,5 +42,8 @@ public static class PostsModule
 
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IAuthorRepository, AuthorRepository>();
+
+        services.AddScoped<IPostsApi, PostsApi>();
     }
 }
