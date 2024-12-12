@@ -5,7 +5,6 @@
 	  <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj" />
 	  <ProjectReference Include="..\SharpDevMind.Modules.Users.Application\SharpDevMind.Modules.Users.Application.csproj" />
     <ProjectReference Include="..\SharpDevMind.Modules.Users.Presentation\SharpDevMind.Modules.Users.Presentation.csproj" />
-    <ProjectReference Include="..\SharpDevMind.Modules.Users.PublicApi\SharpDevMind.Modules.Users.PublicApi.csproj" />
   </ItemGroup>
 
 </Project>

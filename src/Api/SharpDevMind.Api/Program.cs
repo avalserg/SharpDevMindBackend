@@ -31,6 +31,7 @@ string databaseConnectionString = builder.Configuration.GetConnectionString("Dat
 string redisConnectionString = builder.Configuration.GetConnectionString("Cache")!;
 
 builder.Services.AddInfrastructure(
+    [PostsModule.ConfigureConsumers],
     databaseConnectionString,
     redisConnectionString);
 

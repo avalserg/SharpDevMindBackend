@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SharpDevMind.Common.Infrastructure.Interceptors;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
 using SharpDevMind.Modules.Posts.Domain.Authors;
@@ -11,8 +13,7 @@ using SharpDevMind.Modules.Posts.Infrastructure.Authors;
 using SharpDevMind.Modules.Posts.Infrastructure.Categories;
 using SharpDevMind.Modules.Posts.Infrastructure.Database;
 using SharpDevMind.Modules.Posts.Infrastructure.Posts;
-using SharpDevMind.Modules.Posts.Infrastructure.PublicApi;
-using SharpDevMind.Modules.Posts.PublicApi;
+using SharpDevMind.Modules.Posts.Presentation.Authors;
 
 namespace SharpDevMind.Modules.Posts.Infrastructure;
 
@@ -28,7 +29,12 @@ public static class PostsModule
 
         return services;
     }
+    public static void ConfigureConsumers(IRegistrationConfigurator registrationConfigurator)
+    {
+        registrationConfigurator.AddConsumer<UserRegisteredIntegrationEventConsumer>();
 
+
+    }
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<PostsDbContext>((sp, options) =>
@@ -37,13 +43,13 @@ public static class PostsModule
                     configuration.GetConnectionString("Database"),
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Posts))
-                .UseSnakeCaseNamingConvention());
+                .UseSnakeCaseNamingConvention()
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<PostsDbContext>());
 
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IAuthorRepository, AuthorRepository>();
 
-        services.AddScoped<IPostsApi, PostsApi>();
     }
 }

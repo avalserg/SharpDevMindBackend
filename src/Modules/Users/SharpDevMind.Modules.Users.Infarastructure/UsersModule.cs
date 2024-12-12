@@ -2,13 +2,12 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SharpDevMind.Common.Infrastructure.Interceptors;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Application.Abstractions.Data;
 using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
-using SharpDevMind.Modules.Users.Infrastructure.PublicApi;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
-using SharpDevMind.Modules.Users.PublicApi;
 
 namespace SharpDevMind.Modules.Users.Infrastructure;
 
@@ -36,12 +35,12 @@ public static class UsersModule
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Users))
+                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>())
                 .UseSnakeCaseNamingConvention());
 
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UsersDbContext>());
-        services.AddScoped<IUsersApi, UsersApi>();
     }
 
 
