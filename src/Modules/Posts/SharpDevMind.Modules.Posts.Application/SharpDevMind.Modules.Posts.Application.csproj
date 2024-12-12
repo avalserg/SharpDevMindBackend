@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Application\SharpDevMind.Common.Application.csproj" />
+    <ProjectReference Include="..\..\Users\SharpDevMind.Modules.Users.PublicApi\SharpDevMind.Modules.Users.PublicApi.csproj" />
     <ProjectReference Include="..\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Posts.Domain.csproj" />
   </ItemGroup>
 

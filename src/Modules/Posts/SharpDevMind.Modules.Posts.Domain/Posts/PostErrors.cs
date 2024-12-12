@@ -6,6 +6,8 @@ public static class PostErrors
 {
     public static Error NotFound(Guid postId) =>
         Error.NotFound("Post.NotFound", $"The post with the identifier {postId} was not found");
+    public static Error OwnerNotFound(Guid userId) =>
+        Error.NotFound("Owner.NotFound", $"The user with the identifier {userId} was not found");
 
     public static readonly Error AlreadyArchived = Error.Problem(
         "Post.AlreadyArchived",

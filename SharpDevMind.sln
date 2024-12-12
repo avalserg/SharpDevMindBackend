@@ -43,13 +43,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Common.Present
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Posts", "Posts", "{518060E1-F660-442A-BF2B-5C0759EA0433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Application", "src\Modules\Posts\SharpDevMind.Modules.Posts.Application\SharpDevMind.Modules.Posts.Application.csproj", "{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.Application", "src\Modules\Posts\SharpDevMind.Modules.Posts.Application\SharpDevMind.Modules.Posts.Application.csproj", "{34E9F6A9-D16A-4BF7-8509-EA904F8EFA40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Domain", "src\Modules\Posts\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Posts.Domain.csproj", "{2E430FFC-B261-4ACE-A2CD-983A514095FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.Domain", "src\Modules\Posts\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Posts.Domain.csproj", "{2E430FFC-B261-4ACE-A2CD-983A514095FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Infrastructure", "src\Modules\Posts\SharpDevMind.Modules.Posts.Infrastructure\SharpDevMind.Modules.Posts.Infrastructure.csproj", "{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.Infrastructure", "src\Modules\Posts\SharpDevMind.Modules.Posts.Infrastructure\SharpDevMind.Modules.Posts.Infrastructure.csproj", "{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.Presentation", "src\Modules\Posts\SharpDevMind.Modules.Posts.Presentation\SharpDevMind.Modules.Posts.Presentation.csproj", "{988D2BA3-3928-4659-836D-093766A6BDBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.Presentation", "src\Modules\Posts\SharpDevMind.Modules.Posts.Presentation\SharpDevMind.Modules.Posts.Presentation.csproj", "{988D2BA3-3928-4659-836D-093766A6BDBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.PublicApi", "src\Modules\Users\SharpDevMind.Modules.Users.PublicApi\SharpDevMind.Modules.Users.PublicApi.csproj", "{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,10 @@ Global
 		{988D2BA3-3928-4659-836D-093766A6BDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{988D2BA3-3928-4659-836D-093766A6BDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{988D2BA3-3928-4659-836D-093766A6BDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,6 +143,7 @@ Global
 		{2E430FFC-B261-4ACE-A2CD-983A514095FC} = {518060E1-F660-442A-BF2B-5C0759EA0433}
 		{2BD13FA0-8AD3-456B-8F85-6C255A8E3A09} = {518060E1-F660-442A-BF2B-5C0759EA0433}
 		{988D2BA3-3928-4659-836D-093766A6BDBD} = {518060E1-F660-442A-BF2B-5C0759EA0433}
+		{C7D9A208-8030-4FCA-8EDF-1EB5D13B188B} = {691F65E9-3C52-4B2F-9687-3CAAFC3B2754}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6571E6EB-3D5A-4AFF-A138-0F7F36959734}
