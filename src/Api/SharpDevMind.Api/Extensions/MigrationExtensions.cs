@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SharpDevMind.Modules.Posts.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 
 namespace SharpDevMind.Api.Extensions;
@@ -10,6 +11,7 @@ internal static class MigrationExtensions
         using IServiceScope scope = app.ApplicationServices.CreateScope();
 
         ApplyMigration<UsersDbContext>(scope);
+        ApplyMigration<PostsDbContext>(scope);
     }
 
     private static void ApplyMigration<TDbContext>(IServiceScope scope)

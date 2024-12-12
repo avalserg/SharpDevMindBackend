@@ -2,8 +2,8 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SharpDevMind.Common.Application.Data;
 using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Modules.Users.Application.Abstractions.Data;
 using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Users;

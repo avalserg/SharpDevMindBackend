@@ -5,8 +5,4 @@
     <ProjectReference Include="..\SharpDevMind.Modules.Users.Domain\SharpDevMind.Modules.Users.Domain.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Abstractions\Data\" />
-	</ItemGroup>
-
 </Project>
