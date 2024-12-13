@@ -7,7 +7,7 @@ using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Common.Presentation.Results;
 using SharpDevMind.Modules.Posts.Application.Posts.GetPosts;
 
-namespace SharpDevMind.Modules.Posts.Presentation.Events;
+namespace SharpDevMind.Modules.Posts.Presentation.Posts;
 
 internal sealed class GetPosts : IEndpoint
 {

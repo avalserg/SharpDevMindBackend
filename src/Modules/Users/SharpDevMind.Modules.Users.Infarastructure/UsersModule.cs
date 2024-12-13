@@ -2,11 +2,14 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using SharpDevMind.Common.Infrastructure.Interceptors;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Application.Abstractions.Data;
+using SharpDevMind.Modules.Users.Application.Abstractions.Identity;
 using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
+using SharpDevMind.Modules.Users.Infrastructure.Identity;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
 
 namespace SharpDevMind.Modules.Users.Infrastructure;
@@ -26,6 +29,23 @@ public static class UsersModule
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+
+        services.Configure<KeyCloakOptions>(configuration.GetSection("Users:KeyCloak"));
+
+        services.AddTransient<KeyCloakAuthDelegatingHandler>();
+
+        services
+            .AddHttpClient<KeyCloakClient>((serviceProvider, httpClient) =>
+            {
+                KeyCloakOptions keyCloakOptions = serviceProvider
+                    .GetRequiredService<IOptions<KeyCloakOptions>>().Value;
+
+                httpClient.BaseAddress = new Uri(keyCloakOptions.AdminUrl);
+            })
+            .AddHttpMessageHandler<KeyCloakAuthDelegatingHandler>();
+
+        services.AddTransient<IIdentityProviderService, IdentityProviderService>();
+
         string databaseConnectionString = configuration.GetConnectionString("Database")!;
 
 
