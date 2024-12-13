@@ -17,61 +17,52 @@ internal sealed class PermissionConfiguration : IEntityTypeConfiguration<Permiss
         builder.HasData(
             Permission.GetUser,
             Permission.ModifyUser,
-            Permission.GetEvents,
-            Permission.SearchEvents,
-            Permission.ModifyEvents,
-            Permission.GetTicketTypes,
-            Permission.ModifyTicketTypes,
             Permission.GetCategories,
             Permission.ModifyCategories,
-            Permission.GetCart,
-            Permission.AddToCart,
-            Permission.RemoveFromCart,
-            Permission.GetOrders,
-            Permission.CreateOrder,
-            Permission.GetTickets,
-            Permission.CheckInTicket,
-            Permission.GetEventStatistics);
+            Permission.ArchiveCategories,
+            Permission.AddCategories,
+            Permission.GetPosts,
+            Permission.AddPosts,
+            Permission.ArchivePosts,
+            Permission.SearchPosts
+            );
+
+
 
         builder
-            .HasMany<Role>()
-            .WithMany()
-            .UsingEntity(joinBuilder =>
-            {
-                joinBuilder.ToTable("role_permissions");
+                .HasMany<Role>()
+                .WithMany()
+                .UsingEntity(joinBuilder =>
+                {
+                    joinBuilder.ToTable("role_permissions");
 
-                joinBuilder.HasData(
-                    // Member permissions
-                    CreateRolePermission(Role.User, Permission.GetUser),
-                    CreateRolePermission(Role.User, Permission.ModifyUser),
-                    CreateRolePermission(Role.User, Permission.SearchEvents),
-                    CreateRolePermission(Role.User, Permission.GetTicketTypes),
-                    CreateRolePermission(Role.User, Permission.GetCart),
-                    CreateRolePermission(Role.User, Permission.AddToCart),
-                    CreateRolePermission(Role.User, Permission.RemoveFromCart),
-                    CreateRolePermission(Role.User, Permission.GetOrders),
-                    CreateRolePermission(Role.User, Permission.CreateOrder),
-                    CreateRolePermission(Role.User, Permission.GetTickets),
-                    CreateRolePermission(Role.User, Permission.CheckInTicket),
-                    // Admin permissions
-                    CreateRolePermission(Role.Administrator, Permission.GetUser),
-                    CreateRolePermission(Role.Administrator, Permission.ModifyUser),
-                    CreateRolePermission(Role.Administrator, Permission.GetEvents),
-                    CreateRolePermission(Role.Administrator, Permission.SearchEvents),
-                    CreateRolePermission(Role.Administrator, Permission.ModifyEvents),
-                    CreateRolePermission(Role.Administrator, Permission.GetTicketTypes),
-                    CreateRolePermission(Role.Administrator, Permission.ModifyTicketTypes),
-                    CreateRolePermission(Role.Administrator, Permission.GetCategories),
-                    CreateRolePermission(Role.Administrator, Permission.ModifyCategories),
-                    CreateRolePermission(Role.Administrator, Permission.GetCart),
-                    CreateRolePermission(Role.Administrator, Permission.AddToCart),
-                    CreateRolePermission(Role.Administrator, Permission.RemoveFromCart),
-                    CreateRolePermission(Role.Administrator, Permission.GetOrders),
-                    CreateRolePermission(Role.Administrator, Permission.CreateOrder),
-                    CreateRolePermission(Role.Administrator, Permission.GetTickets),
-                    CreateRolePermission(Role.Administrator, Permission.CheckInTicket),
-                    CreateRolePermission(Role.Administrator, Permission.GetEventStatistics));
-            });
+                    joinBuilder.HasData(
+                         // Guest Permission
+                         CreateRolePermission(Role.Guest, Permission.GetCategories),
+                         CreateRolePermission(Role.Guest, Permission.GetPosts),
+                         CreateRolePermission(Role.Guest, Permission.SearchPosts),
+                        // Member permissions
+                        CreateRolePermission(Role.User, Permission.GetUser),
+                        CreateRolePermission(Role.User, Permission.ModifyUser),
+                        CreateRolePermission(Role.User, Permission.GetCategories),
+                        CreateRolePermission(Role.User, Permission.GetPosts),
+                        CreateRolePermission(Role.User, Permission.AddPosts),
+                        CreateRolePermission(Role.User, Permission.ArchivePosts),
+                        CreateRolePermission(Role.User, Permission.SearchPosts),
+                        // Admin permissions
+                        CreateRolePermission(Role.Administrator, Permission.GetUser),
+                        CreateRolePermission(Role.Administrator, Permission.ModifyUser),
+                        CreateRolePermission(Role.Administrator, Permission.GetCategories),
+                        CreateRolePermission(Role.Administrator, Permission.ModifyCategories),
+                        CreateRolePermission(Role.Administrator, Permission.ArchiveCategories),
+                        CreateRolePermission(Role.Administrator, Permission.AddCategories),
+                        CreateRolePermission(Role.Administrator, Permission.GetPosts),
+                        CreateRolePermission(Role.Administrator, Permission.AddPosts),
+                        CreateRolePermission(Role.Administrator, Permission.ArchivePosts),
+                        CreateRolePermission(Role.Administrator, Permission.SearchPosts)
+
+                      );
+                });
     }
 
     private static object CreateRolePermission(Role role, Permission permission)

@@ -3,11 +3,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using SharpDevMind.Common.Application.Authorization;
 using SharpDevMind.Common.Infrastructure.Interceptors;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Application.Abstractions.Data;
 using SharpDevMind.Modules.Users.Application.Abstractions.Identity;
 using SharpDevMind.Modules.Users.Domain.Users;
+using SharpDevMind.Modules.Users.Infrastructure.Authorization;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Identity;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
@@ -29,6 +31,7 @@ public static class UsersModule
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddScoped<IPermissionService, PermissionService>();
 
         services.Configure<KeyCloakOptions>(configuration.GetSection("Users:KeyCloak"));
 
