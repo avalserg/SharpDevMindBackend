@@ -20,6 +20,7 @@ internal sealed class GetPost : IEndpoint
 
             return result.Match(Results.Ok, ApiResults.Problem);
         })
+
         .WithTags(Tags.Posts);
     }
 }

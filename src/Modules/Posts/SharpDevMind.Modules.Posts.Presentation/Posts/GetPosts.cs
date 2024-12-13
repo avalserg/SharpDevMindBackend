@@ -20,6 +20,7 @@ internal sealed class GetPosts : IEndpoint
 
             return result.Match(Results.Ok, ApiResults.Problem);
         })
+        .RequireAuthorization()
         .WithTags(Tags.Posts);
     }
 }

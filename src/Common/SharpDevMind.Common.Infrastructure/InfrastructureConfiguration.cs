@@ -6,6 +6,7 @@ using SharpDevMind.Common.Application.Caching;
 using SharpDevMind.Common.Application.Clock;
 using SharpDevMind.Common.Application.Data;
 using SharpDevMind.Common.Application.EventBus;
+using SharpDevMind.Common.Infrastructure.Authentication;
 using SharpDevMind.Common.Infrastructure.Caching;
 using SharpDevMind.Common.Infrastructure.Clock;
 using SharpDevMind.Common.Infrastructure.Data;
@@ -22,6 +23,8 @@ public static class InfrastructureConfiguration
         string databaseConnectionString,
         string redisConnectionString)
     {
+        services.AddAuthenticationInternal();
+
         NpgsqlDataSource npgsqlDataSource = new NpgsqlDataSourceBuilder(databaseConnectionString).Build();
 
         services.TryAddSingleton(npgsqlDataSource);

@@ -51,7 +51,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.Presentation", "src\Modules\Posts\SharpDevMind.Modules.Posts.Presentation\SharpDevMind.Modules.Posts.Presentation.csproj", "{988D2BA3-3928-4659-836D-093766A6BDBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.IntegrationEvents", "src\Modules\Users\SharpDevMind.Modules.Users.IntegrationEvents\SharpDevMind.Modules.Users.IntegrationEvents.csproj", "{92A7AF55-2E9C-4483-8126-E989B1CA4FFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.IntegrationEvents", "src\Modules\Users\SharpDevMind.Modules.Users.IntegrationEvents\SharpDevMind.Modules.Users.IntegrationEvents.csproj", "{92A7AF55-2E9C-4483-8126-E989B1CA4FFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
