@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using SharpDevMind.Common.Application.Authorization;
-using SharpDevMind.Common.Infrastructure.Interceptors;
+using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Application.Abstractions.Data;
 using SharpDevMind.Modules.Users.Application.Abstractions.Identity;
@@ -12,6 +12,7 @@ using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Authorization;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Identity;
+using SharpDevMind.Modules.Users.Infrastructure.Outbox;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
 
 namespace SharpDevMind.Modules.Users.Infrastructure;
@@ -58,12 +59,16 @@ public static class UsersModule
                     databaseConnectionString,
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Users))
-                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>())
+                .AddInterceptors(sp.GetRequiredService<InsertOutboxMessagesInterceptor>())
                 .UseSnakeCaseNamingConvention());
 
         services.AddScoped<IUserRepository, UserRepository>();
 
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UsersDbContext>());
+
+        services.Configure<OutboxOptions>(configuration.GetSection("Users:Outbox"));
+
+        services.ConfigureOptions<ConfigureProcessOutboxJob>();
     }
 
 

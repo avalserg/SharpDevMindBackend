@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
 using SharpDevMind.Modules.Posts.Domain.Authors;
 using SharpDevMind.Modules.Posts.Domain.Categories;
@@ -18,7 +19,7 @@ public sealed class PostsDbContext(DbContextOptions<PostsDbContext> options) : D
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema(Schemas.Posts);
-
+        modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
         modelBuilder.ApplyConfiguration(new PostConfiguration());
         modelBuilder.ApplyConfiguration(new AuthorConfiguration());
     }

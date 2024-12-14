@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SharpDevMind.Common.Infrastructure.Interceptors;
+using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
 using SharpDevMind.Modules.Posts.Domain.Authors;
@@ -44,7 +44,7 @@ public static class PostsModule
                     npgsqlOptions => npgsqlOptions
                         .MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Posts))
                 .UseSnakeCaseNamingConvention()
-                .AddInterceptors(sp.GetRequiredService<PublishDomainEventsInterceptor>()));
+                .AddInterceptors(sp.GetRequiredService<InsertOutboxMessagesInterceptor>()));
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<PostsDbContext>());
 
         services.AddScoped<IPostRepository, PostRepository>();

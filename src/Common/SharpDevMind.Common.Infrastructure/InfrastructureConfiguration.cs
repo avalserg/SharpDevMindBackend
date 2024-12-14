@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Npgsql;
+using Quartz;
 using SharpDevMind.Common.Application.Caching;
 using SharpDevMind.Common.Application.Clock;
 using SharpDevMind.Common.Application.Data;
@@ -11,7 +12,7 @@ using SharpDevMind.Common.Infrastructure.Authorization;
 using SharpDevMind.Common.Infrastructure.Caching;
 using SharpDevMind.Common.Infrastructure.Clock;
 using SharpDevMind.Common.Infrastructure.Data;
-using SharpDevMind.Common.Infrastructure.Interceptors;
+using SharpDevMind.Common.Infrastructure.Outbox;
 using StackExchange.Redis;
 
 namespace SharpDevMind.Common.Infrastructure;
@@ -35,7 +36,12 @@ public static class InfrastructureConfiguration
         services.TryAddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
-        services.TryAddSingleton<PublishDomainEventsInterceptor>();
+
+        services.TryAddSingleton<InsertOutboxMessagesInterceptor>();
+
+        services.AddQuartz();
+
+        services.AddQuartzHostedService(options => options.WaitForJobsToComplete = true);
 
         try
         {
