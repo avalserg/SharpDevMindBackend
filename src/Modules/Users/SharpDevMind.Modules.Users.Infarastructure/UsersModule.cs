@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using SharpDevMind.Common.Application.Authorization;
+using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Modules.Users.Application.Abstractions.Data;
@@ -32,6 +34,8 @@ public static class UsersModule
 
     private static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddDomainEventHandlers();
+
         services.AddScoped<IPermissionService, PermissionService>();
 
         services.Configure<KeyCloakOptions>(configuration.GetSection("Users:KeyCloak"));
@@ -70,6 +74,27 @@ public static class UsersModule
 
         services.ConfigureOptions<ConfigureProcessOutboxJob>();
     }
+    private static void AddDomainEventHandlers(this IServiceCollection services)
+    {
+        Type[] domainEventHandlers = Application.AssemblyReference.Assembly
+            .GetTypes()
+            .Where(t => t.IsAssignableTo(typeof(IDomainEventHandler)))
+            .ToArray();
 
+        foreach (Type domainEventHandler in domainEventHandlers)
+        {
+            services.TryAddScoped(domainEventHandler);
+
+            Type domainEvent = domainEventHandler
+                .GetInterfaces()
+                .Single(i => i.IsGenericType)
+                .GetGenericArguments()
+                .Single();
+
+            Type closedIdempotentHandler = typeof(IdempotentDomainEventHandler<>).MakeGenericType(domainEvent);
+
+            services.Decorate(domainEventHandler, closedIdempotentHandler);
+        }
+    }
 
 }

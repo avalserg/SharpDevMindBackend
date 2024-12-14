@@ -10,11 +10,11 @@ using SharpDevMind.Modules.Users.IntegrationEvents;
 namespace SharpDevMind.Modules.Users.Application.Users.RegisterUser;
 
 internal sealed class UserRegisteredDomainEventHandler(ISender sender, IEventBus eventBus)
-    : IDomainEventHandler<UserRegisteredDomainEvent>
+    : DomainEventHandler<UserRegisteredDomainEvent>
 {
-    public async Task Handle(
+    public override async Task Handle(
         UserRegisteredDomainEvent notification,
-        CancellationToken cancellationToken)
+        CancellationToken cancellationToken = default)
     {
         Result<UserResponse> result = await sender.Send(new GetUserQuery(notification.UserId), cancellationToken);
 

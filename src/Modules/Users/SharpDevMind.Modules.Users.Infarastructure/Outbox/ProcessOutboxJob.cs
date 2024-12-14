@@ -1,7 +1,6 @@
 ﻿using System.Data;
 using System.Data.Common;
 using Dapper;
-using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -9,7 +8,9 @@ using Newtonsoft.Json;
 using Quartz;
 using SharpDevMind.Common.Application.Clock;
 using SharpDevMind.Common.Application.Data;
+using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Common.Infrastructure.Serialization;
 
 namespace SharpDevMind.Modules.Users.Infrastructure.Outbox;
@@ -48,9 +49,15 @@ internal sealed class ProcessOutboxJob(
 
                 using IServiceScope scope = serviceScopeFactory.CreateScope();
 
-                IPublisher publisher = scope.ServiceProvider.GetRequiredService<IPublisher>();
+                IEnumerable<IDomainEventHandler> domainEventHandlers = DomainEventHandlersFactory.GetHandlers(
+                    domainEvent.GetType(),
+                    scope.ServiceProvider,
+                    Application.AssemblyReference.Assembly);
 
-                await publisher.Publish(domainEvent);
+                foreach (IDomainEventHandler domainEventHandler in domainEventHandlers)
+                {
+                    await domainEventHandler.Handle(domainEvent);
+                }
             }
             catch (Exception caughtException)
             {
