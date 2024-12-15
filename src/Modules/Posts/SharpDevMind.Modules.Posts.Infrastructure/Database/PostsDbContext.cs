@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SharpDevMind.Common.Infrastructure.Inbox;
 using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Modules.Posts.Application.Abstractions.Data;
 using SharpDevMind.Modules.Posts.Domain.Authors;
@@ -23,5 +24,7 @@ public sealed class PostsDbContext(DbContextOptions<PostsDbContext> options) : D
         modelBuilder.ApplyConfiguration(new PostConfiguration());
         modelBuilder.ApplyConfiguration(new AuthorConfiguration());
         modelBuilder.ApplyConfiguration(new OutboxMessageConsumerConfiguration());
+        modelBuilder.ApplyConfiguration(new InboxMessageConsumerConfiguration());
+        modelBuilder.ApplyConfiguration(new InboxMessageConfiguration());
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using SharpDevMind.Common.Application.Authorization;
+using SharpDevMind.Common.Application.EventBus;
 using SharpDevMind.Common.Application.Messaging;
 using SharpDevMind.Common.Infrastructure.Outbox;
 using SharpDevMind.Common.Presentation.Endpoints;
@@ -14,6 +15,7 @@ using SharpDevMind.Modules.Users.Domain.Users;
 using SharpDevMind.Modules.Users.Infrastructure.Authorization;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Identity;
+using SharpDevMind.Modules.Users.Infrastructure.Inbox;
 using SharpDevMind.Modules.Users.Infrastructure.Outbox;
 using SharpDevMind.Modules.Users.Infrastructure.Users;
 
@@ -73,6 +75,10 @@ public static class UsersModule
         services.Configure<OutboxOptions>(configuration.GetSection("Users:Outbox"));
 
         services.ConfigureOptions<ConfigureProcessOutboxJob>();
+
+        services.Configure<InboxOptions>(configuration.GetSection("Users:Inbox"));
+
+        services.ConfigureOptions<ConfigureProcessInboxJob>();
     }
     private static void AddDomainEventHandlers(this IServiceCollection services)
     {
@@ -94,6 +100,29 @@ public static class UsersModule
             Type closedIdempotentHandler = typeof(IdempotentDomainEventHandler<>).MakeGenericType(domainEvent);
 
             services.Decorate(domainEventHandler, closedIdempotentHandler);
+        }
+    }
+    private static void AddIntegrationEventHandlers(this IServiceCollection services)
+    {
+        Type[] integrationEventHandlers = Presentation.AssemblyReference.Assembly
+            .GetTypes()
+            .Where(t => t.IsAssignableTo(typeof(IIntegrationEventHandler)))
+            .ToArray();
+
+        foreach (Type integrationEventHandler in integrationEventHandlers)
+        {
+            services.TryAddScoped(integrationEventHandler);
+
+            Type integrationEvent = integrationEventHandler
+                .GetInterfaces()
+                .Single(i => i.IsGenericType)
+                .GetGenericArguments()
+                .Single();
+
+            Type closedIdempotentHandler =
+                typeof(IdempotentIntegrationEventHandler<>).MakeGenericType(integrationEvent);
+
+            services.Decorate(integrationEventHandler, closedIdempotentHandler);
         }
     }
 
