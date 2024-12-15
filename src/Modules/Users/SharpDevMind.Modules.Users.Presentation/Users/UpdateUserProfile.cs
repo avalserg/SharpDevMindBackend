@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using System.Security.Claims;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using SharpDevMind.Common.Domain;
+using SharpDevMind.Common.Infrastructure.Authentication;
 using SharpDevMind.Common.Presentation.Endpoints;
 using SharpDevMind.Common.Presentation.Results;
 using SharpDevMind.Modules.Users.Application.Users.UpdateUser;
@@ -13,10 +15,10 @@ internal sealed class UpdateUserProfile : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapPut("users/profile/{id}", async (Request request, Guid id, ISender sender) =>
+        app.MapPut("users/profile", async (Request request, ClaimsPrincipal claims, ISender sender) =>
         {
             Result result = await sender.Send(new UpdateUserCommand(
-                id,
+                claims.GetUserId(),
                 request.FirstName,
                 request.LastName));
 

@@ -22,5 +22,6 @@ public sealed class PostsDbContext(DbContextOptions<PostsDbContext> options) : D
         modelBuilder.ApplyConfiguration(new OutboxMessageConfiguration());
         modelBuilder.ApplyConfiguration(new PostConfiguration());
         modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+        modelBuilder.ApplyConfiguration(new OutboxMessageConsumerConfiguration());
     }
 }

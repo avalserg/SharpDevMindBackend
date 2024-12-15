@@ -45,9 +45,9 @@ public sealed class User : Entity
         {
             return;
         }
-
         FirstName = firstName;
         LastName = lastName;
 
+        Raise(new UserProfileUpdatedDomainEvent(Id, FirstName, LastName));
     }
 }
