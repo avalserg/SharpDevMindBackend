@@ -52,3 +52,11 @@ services:
       - ./.files:/opt/keycloak/data/import
     ports:
       - 18080:8080
+
+  sharpdevmind.jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: SharpDevMind.Jaeger
+    ports:
+      - 4317:4317
+      - 4318:4318
+      - 16686:16686

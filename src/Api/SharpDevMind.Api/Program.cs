@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
 using SharpDevMind.Api.Extensions;
 using SharpDevMind.Api.Middleware;
+using SharpDevMind.Api.OpenTelemetry;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
 using SharpDevMind.Common.Presentation.Endpoints;
@@ -31,6 +32,7 @@ string databaseConnectionString = builder.Configuration.GetConnectionString("Dat
 string redisConnectionString = builder.Configuration.GetConnectionString("Cache")!;
 
 builder.Services.AddInfrastructure(
+    DiagnosticsConfig.ServiceName,
     [PostsModule.ConfigureConsumers],
     databaseConnectionString,
     redisConnectionString);
@@ -61,7 +63,7 @@ app.MapHealthChecks("health", new HealthCheckOptions
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
 
-app.MapEndpoints();
+app.UseLogContextTraceLogging();
 
 app.UseSerilogRequestLogging();
 
@@ -70,6 +72,8 @@ app.UseExceptionHandler();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapEndpoints();
 
 app.Run();
 
