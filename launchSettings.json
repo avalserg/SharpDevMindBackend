@@ -4,7 +4,8 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "serviceActions": {
-        "sharpdevmind.api": "StartDebugging"
+        "sharpdevmind.api": "StartDebugging",
+        "sharpdevmind.gateway": "StartDebugging"
       }
     }
   }

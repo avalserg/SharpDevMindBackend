@@ -21,7 +21,7 @@ internal sealed class RequestLoggingPipelineBehavior<TRequest, TResponse>(
         string requestName = typeof(TRequest).Name;
 
         Activity.Current?.SetTag("request.module", moduleName);
-        Activity.Current?.SetTag("request.name", moduleName);
+        Activity.Current?.SetTag("request.name", requestName);
 
         using (LogContext.PushProperty("Module", moduleName))
         {

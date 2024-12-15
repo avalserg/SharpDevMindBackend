@@ -10,7 +10,17 @@ services:
     ports:
         - 7000:8080
         - 7001:8081  
-  
+
+  sharpdevmind.gateway:
+    image: ${DOCKER_REGISTRY-}sharpdevmindgateway
+    container_name: SharpDevMind.Gateway
+    build:
+      context: .
+      dockerfile: src/Api/SharpDevMind.Gateway/Dockerfile
+    ports:
+      - 4000:8080
+      - 4001:8081
+        
   sharpdevmind.database:
     image: postgres:latest
     container_name: SharpDevMind.Database
@@ -60,3 +70,4 @@ services:
       - 4317:4317
       - 4318:4318
       - 16686:16686
+
