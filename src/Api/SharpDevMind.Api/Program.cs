@@ -7,6 +7,7 @@ using SharpDevMind.Api.OpenTelemetry;
 using SharpDevMind.Common.Application;
 using SharpDevMind.Common.Infrastructure;
 using SharpDevMind.Common.Presentation.Endpoints;
+using SharpDevMind.Modules.Comments.Infrastructure;
 using SharpDevMind.Modules.Posts.Infrastructure;
 using SharpDevMind.Modules.Users.Infrastructure;
 
@@ -21,11 +22,12 @@ builder.Services.AddProblemDetails();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerDocumentation();
 
-builder.Configuration.AddModuleConfiguration(["users", "posts"]);
+builder.Configuration.AddModuleConfiguration(["users", "posts", "comments"]);
 
 builder.Services.AddApplication([
     SharpDevMind.Modules.Users.Application.AssemblyReference.Assembly,
-    SharpDevMind.Modules.Posts.Application.AssemblyReference.Assembly
+    SharpDevMind.Modules.Posts.Application.AssemblyReference.Assembly,
+    SharpDevMind.Modules.Comments.Application.AssemblyReference.Assembly
 ]);
 
 string databaseConnectionString = builder.Configuration.GetConnectionString("Database")!;
@@ -33,7 +35,8 @@ string redisConnectionString = builder.Configuration.GetConnectionString("Cache"
 
 builder.Services.AddInfrastructure(
     DiagnosticsConfig.ServiceName,
-    [PostsModule.ConfigureConsumers],
+    [PostsModule.ConfigureConsumers,
+        CommentsModule.ConfigureConsumers],
     databaseConnectionString,
     redisConnectionString);
 
@@ -47,6 +50,7 @@ builder.Services.AddHealthChecks()
 
 builder.Services.AddUsersModule(builder.Configuration);
 builder.Services.AddPostsModule(builder.Configuration);
+builder.Services.AddCommentsModule(builder.Configuration);
 
 WebApplication app = builder.Build();
 

@@ -18,6 +18,7 @@ internal sealed class GetPostQueryHandler(IDbConnectionFactory dbConnectionFacto
              SELECT
                  e.id AS {nameof(PostResponse.Id)},
                  e.category_id AS {nameof(PostResponse.CategoryId)},
+                 e.user_id AS {nameof(PostResponse.AuthorId)},
                  e.title AS {nameof(PostResponse.Title)},
                  e.content AS {nameof(PostResponse.Content)},
                  e.rating AS {nameof(PostResponse.Rating)},

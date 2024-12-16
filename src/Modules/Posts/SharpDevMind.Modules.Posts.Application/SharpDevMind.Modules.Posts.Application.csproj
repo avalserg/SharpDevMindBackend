@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Application\SharpDevMind.Common.Application.csproj" />
     <ProjectReference Include="..\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Posts.Domain.csproj" />
+    <ProjectReference Include="..\SharpDevMind.Modules.Posts.IntegrationEvents\SharpDevMind.Modules.Posts.IntegrationEvents.csproj" />
   </ItemGroup>
 
 </Project>

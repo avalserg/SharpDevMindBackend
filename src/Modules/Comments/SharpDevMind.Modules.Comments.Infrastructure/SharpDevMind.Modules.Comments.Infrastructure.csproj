@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SharpDevMind.Common.Infrastructure\SharpDevMind.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharpDevMind.Modules.Comments.Application\SharpDevMind.Modules.Comments.Application.csproj" />
+    <ProjectReference Include="..\SharpDevMind.Modules.Comments.Presentation\SharpDevMind.Modules.Comments.Presentation.csproj" />
+  </ItemGroup>
+
+</Project>

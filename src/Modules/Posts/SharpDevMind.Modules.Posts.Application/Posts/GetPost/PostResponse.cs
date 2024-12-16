@@ -3,6 +3,7 @@
 public sealed record PostResponse(
     Guid Id,
     Guid CategoryId,
+    Guid AuthorId,
     string Title,
     string Content,
     int Rating,
