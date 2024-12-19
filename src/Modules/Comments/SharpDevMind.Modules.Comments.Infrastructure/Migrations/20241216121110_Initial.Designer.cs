@@ -12,8 +12,8 @@ using SharpDevMind.Modules.Comments.Infrastructure.Database;
 namespace SharpDevMind.Modules.Comments.Infrastructure.Migrations
 {
     [DbContext(typeof(CommentsDbContext))]
-    [Migration("20241216103925_AddAuthorIdColumn")]
-    partial class AddAuthorIdColumn
+    [Migration("20241216121110_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,6 +117,10 @@ namespace SharpDevMind.Modules.Comments.Infrastructure.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("id");
 
+                    b.Property<Guid>("AuthorId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("author_id");
+
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasColumnType("text")
@@ -138,12 +142,11 @@ namespace SharpDevMind.Modules.Comments.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("updated_at_utc");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
                     b.HasKey("Id")
                         .HasName("pk_comments");
+
+                    b.HasIndex("AuthorId")
+                        .HasDatabaseName("ix_comments_author_id");
 
                     b.HasIndex("PostId")
                         .HasDatabaseName("ix_comments_post_id");
@@ -170,6 +173,13 @@ namespace SharpDevMind.Modules.Comments.Infrastructure.Migrations
 
             modelBuilder.Entity("SharpDevMind.Modules.Comments.Domain.Comments.Comment", b =>
                 {
+                    b.HasOne("SharpDevMind.Modules.Comments.Domain.Authors.Author", null)
+                        .WithMany()
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_comments_authors_author_id");
+
                     b.HasOne("SharpDevMind.Modules.Comments.Domain.Posts.Post", null)
                         .WithMany()
                         .HasForeignKey("PostId")

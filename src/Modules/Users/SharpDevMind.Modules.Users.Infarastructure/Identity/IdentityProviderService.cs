@@ -35,4 +35,36 @@ internal sealed class IdentityProviderService(KeyCloakClient keyCloakClient, ILo
             return Result.Failure<string>(IdentityProviderErrors.EmailIsNotUnique);
         }
     }
+    public async Task<Result<string>> UpdateUserAsync(UpdateUserModel user, CancellationToken cancellationToken = default)
+    {
+        var userRepresentation = new UserRepresentation(
+            user.Email,
+            user.Email,
+            user.FirstName,
+            user.LastName,
+            true,
+            true,
+            []);
+
+        var passwordRepresentation = new PasswordRepresentation(
+            "password",
+            user.Password
+            );
+
+
+        try
+        {
+            string identityId = await keyCloakClient.UpdateUserAsync(userRepresentation, user.IdentityId, cancellationToken);
+            await keyCloakClient.UpdateUserPasswordAsync(passwordRepresentation, user.IdentityId, cancellationToken);
+
+            return identityId;
+        }
+        catch (HttpRequestException exception) when (exception.StatusCode == HttpStatusCode.Conflict)
+        {
+            logger.LogError(exception, "User update failed");
+
+            return Result.Failure<string>(IdentityProviderErrors.UserUpdateFailed(user.IdentityId));
+        }
+
+    }
 }

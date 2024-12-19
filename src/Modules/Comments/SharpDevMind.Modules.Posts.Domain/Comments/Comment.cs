@@ -9,7 +9,7 @@ public sealed class Comment : Entity
     }
 
     public Guid Id { get; private set; }
-    public Guid UserId { get; private set; }
+    public Guid AuthorId { get; private set; }
     public Guid PostId { get; private set; }
     public string Content { get; private set; }
     public DateTime CreatedAtUtc { get; private set; }
@@ -17,7 +17,7 @@ public sealed class Comment : Entity
     public CommentStatus Status { get; private set; }
 
     public static Comment Create(
-        Guid userId,
+        Guid authorId,
         Guid postId,
         string content
         )
@@ -25,7 +25,7 @@ public sealed class Comment : Entity
         var post = new Comment
         {
             Id = Guid.NewGuid(),
-            UserId = userId,
+            AuthorId = authorId,
             PostId = postId,
             Content = content,
             CreatedAtUtc = DateTime.Now.ToUniversalTime(),
@@ -38,14 +38,13 @@ public sealed class Comment : Entity
     }
 
     public Result Update(
-        Guid userId,
-        string title,
+        Guid authorId,
         string content
         )
     {
-        if (UserId != userId)
+        if (AuthorId != authorId)
         {
-            return Result.Failure(CommentErrors.UserNotOwnerComment(userId));
+            return Result.Failure(CommentErrors.UserNotOwnerComment(authorId));
         }
 
         Content = content;

@@ -16,13 +16,14 @@ internal sealed class CreateCommentCommandHandler(
 {
     public async Task<Result<Guid>> Handle(CreateCommentCommand request, CancellationToken cancellationToken)
     {
-        Author author = await authorRepository.GetAsync(request.UserId, cancellationToken);
+        Author author = await authorRepository.GetAsync(request.AuthorId, cancellationToken);
 
         if (author == null)
         {
-            return Result.Failure<Guid>(CommentErrors.OwnerNotFound(request.UserId));
+            return Result.Failure<Guid>(CommentErrors.OwnerNotFound(request.AuthorId));
         }
-        Domain.Posts.Post? post = await postRepository.GetAsync(request.PostId, cancellationToken);
+
+        Post? post = await postRepository.GetAsync(request.PostId, cancellationToken);
 
         if (post is null)
         {

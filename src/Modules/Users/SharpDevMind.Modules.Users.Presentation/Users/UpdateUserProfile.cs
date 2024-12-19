@@ -20,7 +20,8 @@ internal sealed class UpdateUserProfile : IEndpoint
             Result result = await sender.Send(new UpdateUserCommand(
                 claims.GetUserId(),
                 request.FirstName,
-                request.LastName));
+                request.LastName,
+                request.Password));
 
             return result.Match(Results.NoContent, ApiResults.Problem);
         })
@@ -33,5 +34,6 @@ internal sealed class UpdateUserProfile : IEndpoint
         public string FirstName { get; init; }
 
         public string LastName { get; init; }
+        public string Password { get; init; }
     }
 }

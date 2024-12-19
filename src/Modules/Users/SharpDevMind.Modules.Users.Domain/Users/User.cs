@@ -18,6 +18,7 @@ public sealed class User : Entity
 
     public string LastName { get; private set; }
     public string IdentityId { get; private set; }
+    public DateTime RegisteredAt { get; private set; }
 
     public IReadOnlyCollection<Role> Roles => _roles.ToList();
 
@@ -29,7 +30,8 @@ public sealed class User : Entity
             Email = email,
             FirstName = firstName,
             LastName = lastName,
-            IdentityId = identityId
+            IdentityId = identityId,
+            RegisteredAt = DateTime.Now.ToUniversalTime(),
         };
 
         user._roles.Add(Role.User);
@@ -45,6 +47,7 @@ public sealed class User : Entity
         {
             return;
         }
+
         FirstName = firstName;
         LastName = lastName;
 

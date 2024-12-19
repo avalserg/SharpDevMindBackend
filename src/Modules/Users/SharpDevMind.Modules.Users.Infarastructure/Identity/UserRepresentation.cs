@@ -8,3 +8,6 @@ internal sealed record UserRepresentation(
     bool EmailVerified,
     bool Enabled,
     CredentialRepresentation[] Credentials);
+
+internal sealed record PasswordRepresentation(string Type, string Value, bool Temporary = false);
+

@@ -15,11 +15,12 @@ internal sealed class GetPosts : IEndpoint
     {
 
         app.MapGet("posts", async (ISender sender) =>
-        {
-            Result<IReadOnlyCollection<PostResponse>> result = await sender.Send(new GetPostsQuery());
+            {
 
-            return result.Match(Results.Ok, ApiResults.Problem);
-        })
+                Result<IReadOnlyCollection<PostResponse>> result = await sender.Send(new GetPostsQuery());
+
+                return result.Match(Results.Ok, ApiResults.Problem);
+            })
         .RequireAuthorization()
         .WithTags(Tags.Posts);
     }

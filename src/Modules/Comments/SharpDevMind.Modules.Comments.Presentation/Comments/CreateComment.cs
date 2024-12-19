@@ -16,7 +16,7 @@ internal sealed class CreateComment : IEndpoint
         app.MapPost("comments", async (Request request, ISender sender) =>
         {
             Result<Guid> result = await sender.Send(new CreateCommentCommand(
-                request.UserId,
+                request.AuthorId,
                 request.PostId,
                 request.Content
                ));
@@ -29,7 +29,7 @@ internal sealed class CreateComment : IEndpoint
     internal sealed class Request
     {
         public Guid PostId { get; init; }
-        public Guid UserId { get; init; }
+        public Guid AuthorId { get; init; }
         public string Content { get; init; }
 
     }
