@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Comments\SharpDevMind.Modules.Comments.Infrastructure\SharpDevMind.Modules.Comments.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Posts\SharpDevMind.Modules.Posts.Infrastructure\SharpDevMind.Modules.Posts.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Modules\Quizzes\SharpDevMind.Modules.Quizzes.Infrastructure\SharpDevMind.Modules.Quizzes.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Modules\Users\SharpDevMind.Modules.Users.Infarastructure\SharpDevMind.Modules.Users.Infrastructure.csproj" />
   </ItemGroup>
 

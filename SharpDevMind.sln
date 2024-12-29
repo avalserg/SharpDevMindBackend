@@ -53,27 +53,39 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.IntegrationEvents", "src\Modules\Users\SharpDevMind.Modules.Users.IntegrationEvents\SharpDevMind.Modules.Users.IntegrationEvents.csproj", "{92A7AF55-2E9C-4483-8126-E989B1CA4FFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.ArchitectureTests", "src\test\SharpDevMind.ArchitectureTests\SharpDevMind.ArchitectureTests.csproj", "{F41BCCE7-D2E6-4563-996E-5D93994584EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.ArchitectureTests", "src\test\SharpDevMind.ArchitectureTests\SharpDevMind.ArchitectureTests.csproj", "{F41BCCE7-D2E6-4563-996E-5D93994584EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Posts.IntegrationEvents", "src\Modules\Posts\SharpDevMind.Modules.Posts.IntegrationEvents\SharpDevMind.Modules.Posts.IntegrationEvents.csproj", "{08576CD3-D760-4ADF-8D8B-79809A8CBA32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Posts.IntegrationEvents", "src\Modules\Posts\SharpDevMind.Modules.Posts.IntegrationEvents\SharpDevMind.Modules.Posts.IntegrationEvents.csproj", "{08576CD3-D760-4ADF-8D8B-79809A8CBA32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BBA04288-D51E-4510-8794-1B27361AA538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Users.ArchitectureTests", "src\Modules\Users\test\SharpDevMind.Modules.Users.ArchitectureTests\SharpDevMind.Modules.Users.ArchitectureTests.csproj", "{32A8413C-5F0A-4433-B006-BEAEFD879C18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Users.ArchitectureTests", "src\Modules\Users\test\SharpDevMind.Modules.Users.ArchitectureTests\SharpDevMind.Modules.Users.ArchitectureTests.csproj", "{32A8413C-5F0A-4433-B006-BEAEFD879C18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Gateway", "src\Api\SharpDevMind.Gateway\SharpDevMind.Gateway.csproj", "{0B4F655C-D94D-494A-90F6-8D223F3AA76B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Gateway", "src\Api\SharpDevMind.Gateway\SharpDevMind.Gateway.csproj", "{0B4F655C-D94D-494A-90F6-8D223F3AA76B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comments", "Comments", "{B2D54E95-77D9-4321-8124-C7EDC1331C60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Comments.Application", "src\Modules\Comments\SharpDevMind.Modules.Comments.Application\SharpDevMind.Modules.Comments.Application.csproj", "{1B3E1417-4F46-4D62-B1F4-29B7CA1B761B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Comments.Application", "src\Modules\Comments\SharpDevMind.Modules.Comments.Application\SharpDevMind.Modules.Comments.Application.csproj", "{1B3E1417-4F46-4D62-B1F4-29B7CA1B761B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Comments.Domain", "src\Modules\Comments\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Comments.Domain.csproj", "{225DDA64-78AE-4610-BE89-D2FA2352B991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Comments.Domain", "src\Modules\Comments\SharpDevMind.Modules.Posts.Domain\SharpDevMind.Modules.Comments.Domain.csproj", "{225DDA64-78AE-4610-BE89-D2FA2352B991}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Comments.Presentation", "src\Modules\Comments\SharpDevMind.Modules.Comments.Presentation\SharpDevMind.Modules.Comments.Presentation.csproj", "{12DBCFB6-A3EB-497C-B173-FD44F66DD1DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Comments.Presentation", "src\Modules\Comments\SharpDevMind.Modules.Comments.Presentation\SharpDevMind.Modules.Comments.Presentation.csproj", "{12DBCFB6-A3EB-497C-B173-FD44F66DD1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Comments.Infrastructure", "src\Modules\Comments\SharpDevMind.Modules.Comments.Infrastructure\SharpDevMind.Modules.Comments.Infrastructure.csproj", "{1091A87C-4299-40FC-91B4-D844B0548B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Comments.Infrastructure", "src\Modules\Comments\SharpDevMind.Modules.Comments.Infrastructure\SharpDevMind.Modules.Comments.Infrastructure.csproj", "{1091A87C-4299-40FC-91B4-D844B0548B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Comments.IntegrationEvents", "src\Modules\Comments\SharpDevMind.Modules.Comments.IntegrationEvents\SharpDevMind.Modules.Comments.IntegrationEvents.csproj", "{30210DC0-BD4E-46C8-896B-B34ED886A855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpDevMind.Modules.Comments.IntegrationEvents", "src\Modules\Comments\SharpDevMind.Modules.Comments.IntegrationEvents\SharpDevMind.Modules.Comments.IntegrationEvents.csproj", "{30210DC0-BD4E-46C8-896B-B34ED886A855}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quizzes", "Quizzes", "{FA5DC0E9-A848-48D0-970C-10B06D629E1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Quizzes.Application", "src\Modules\Quizzes\SharpDevMind.Modules.Quizzes.Application\SharpDevMind.Modules.Quizzes.Application.csproj", "{33D0F715-A0CC-422F-A876-20171D37905D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Quizzes.Domain", "src\Modules\Quizzes\SharpDevMind.Modules.Quizzes.Domain\SharpDevMind.Modules.Quizzes.Domain.csproj", "{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Quizzes.Infrastructure", "src\Modules\Quizzes\SharpDevMind.Modules.Quizzes.Infrastructure\SharpDevMind.Modules.Quizzes.Infrastructure.csproj", "{453DF0BA-49E7-48BF-A489-0C5F3158DA65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Quizzes.Presentation", "src\Modules\Quizzes\SharpDevMind.Modules.Quizzes.Presentation\SharpDevMind.Modules.Quizzes.Presentation.csproj", "{CFE2D9E4-BCEA-4A97-909F-EB966341895A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpDevMind.Modules.Quizzes.IntegrationEvents", "src\Modules\Quizzes\SharpDevMind.Modules.Quizzes.IntegrationEvents\SharpDevMind.Modules.Quizzes.IntegrationEvents.csproj", "{688BB8B6-CB1A-43FB-A9AF-46D92F18961F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +189,26 @@ Global
 		{30210DC0-BD4E-46C8-896B-B34ED886A855}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30210DC0-BD4E-46C8-896B-B34ED886A855}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30210DC0-BD4E-46C8-896B-B34ED886A855}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33D0F715-A0CC-422F-A876-20171D37905D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33D0F715-A0CC-422F-A876-20171D37905D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33D0F715-A0CC-422F-A876-20171D37905D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33D0F715-A0CC-422F-A876-20171D37905D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{453DF0BA-49E7-48BF-A489-0C5F3158DA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{453DF0BA-49E7-48BF-A489-0C5F3158DA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{453DF0BA-49E7-48BF-A489-0C5F3158DA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{453DF0BA-49E7-48BF-A489-0C5F3158DA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFE2D9E4-BCEA-4A97-909F-EB966341895A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE2D9E4-BCEA-4A97-909F-EB966341895A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE2D9E4-BCEA-4A97-909F-EB966341895A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE2D9E4-BCEA-4A97-909F-EB966341895A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688BB8B6-CB1A-43FB-A9AF-46D92F18961F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688BB8B6-CB1A-43FB-A9AF-46D92F18961F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688BB8B6-CB1A-43FB-A9AF-46D92F18961F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688BB8B6-CB1A-43FB-A9AF-46D92F18961F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,6 +245,12 @@ Global
 		{12DBCFB6-A3EB-497C-B173-FD44F66DD1DE} = {B2D54E95-77D9-4321-8124-C7EDC1331C60}
 		{1091A87C-4299-40FC-91B4-D844B0548B75} = {B2D54E95-77D9-4321-8124-C7EDC1331C60}
 		{30210DC0-BD4E-46C8-896B-B34ED886A855} = {B2D54E95-77D9-4321-8124-C7EDC1331C60}
+		{FA5DC0E9-A848-48D0-970C-10B06D629E1D} = {6F5368AA-71E4-482B-81B7-9C8931CE6015}
+		{33D0F715-A0CC-422F-A876-20171D37905D} = {FA5DC0E9-A848-48D0-970C-10B06D629E1D}
+		{B21D749A-4DD8-4BFC-A35A-D04FF2617BFD} = {FA5DC0E9-A848-48D0-970C-10B06D629E1D}
+		{453DF0BA-49E7-48BF-A489-0C5F3158DA65} = {FA5DC0E9-A848-48D0-970C-10B06D629E1D}
+		{CFE2D9E4-BCEA-4A97-909F-EB966341895A} = {FA5DC0E9-A848-48D0-970C-10B06D629E1D}
+		{688BB8B6-CB1A-43FB-A9AF-46D92F18961F} = {FA5DC0E9-A848-48D0-970C-10B06D629E1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6571E6EB-3D5A-4AFF-A138-0F7F36959734}

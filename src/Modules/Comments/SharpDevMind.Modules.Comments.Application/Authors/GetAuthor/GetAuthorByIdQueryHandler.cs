@@ -22,7 +22,7 @@ internal sealed class GetAuthorByIdQueryHandler(IDbConnectionFactory dbConnectio
                  first_name AS {nameof(AuthorResponse.FirstName)},
                  last_name AS {nameof(AuthorResponse.LastName)}
              FROM comments.authors
-             WHERE id = @CustomerId
+             WHERE id = @AuthorId
              """;
 
         AuthorResponse? authors = await connection.QuerySingleOrDefaultAsync<AuthorResponse>(sql, request);

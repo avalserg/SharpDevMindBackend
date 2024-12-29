@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SharpDevMind.Modules.Comments.Infrastructure.Database;
 using SharpDevMind.Modules.Posts.Infrastructure.Database;
+using SharpDevMind.Modules.Quizzes.Infrastructure.Database;
 using SharpDevMind.Modules.Users.Infrastructure.Database;
 
 namespace SharpDevMind.Api.Extensions;
@@ -14,6 +15,7 @@ internal static class MigrationExtensions
         ApplyMigration<UsersDbContext>(scope);
         ApplyMigration<PostsDbContext>(scope);
         ApplyMigration<CommentsDbContext>(scope);
+        ApplyMigration<QuizzesDbContext>(scope);
     }
 
     private static void ApplyMigration<TDbContext>(IServiceScope scope)
