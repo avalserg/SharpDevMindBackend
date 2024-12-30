@@ -11,8 +11,8 @@ internal sealed class AuthorRepository(CommentsDbContext context) : IAuthorRepos
         return await context.Authors.SingleOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
-    public void Insert(Author customer)
+    public void Insert(Author author)
     {
-        context.Authors.Add(customer);
+        context.Authors.Add(author);
     }
 }

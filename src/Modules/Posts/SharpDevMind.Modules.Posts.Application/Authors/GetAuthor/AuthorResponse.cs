@@ -1,3 +1,3 @@
 ﻿namespace SharpDevMind.Modules.Posts.Application.Authors.GetAuthor;
 
-public sealed record AuthorResponse(Guid Id, string Email, string FirstName, string LastName);
+public sealed record AuthorResponse(Guid Id, string FirstName, string LastName);

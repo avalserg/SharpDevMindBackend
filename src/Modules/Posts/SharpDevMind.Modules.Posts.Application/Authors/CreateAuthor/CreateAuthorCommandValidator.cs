@@ -7,7 +7,6 @@ internal sealed class CreateAuthorCommandValidator : AbstractValidator<CreateAut
     public CreateAuthorCommandValidator()
     {
         RuleFor(c => c.AuthorId).NotEmpty();
-        RuleFor(c => c.Email).EmailAddress();
         RuleFor(c => c.FirstName).NotEmpty();
         RuleFor(c => c.LastName).NotEmpty();
     }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using SharpDevMind.Modules.Quizzes.Infrastructure.Database;
@@ -11,9 +12,11 @@ using SharpDevMind.Modules.Quizzes.Infrastructure.Database;
 namespace SharpDevMind.Modules.Quizzes.Infrastructure.Migrations
 {
     [DbContext(typeof(QuizzesDbContext))]
-    partial class QuizzesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241230054413_RemoveEmailProperyFromUser")]
+    partial class RemoveEmailProperyFromUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

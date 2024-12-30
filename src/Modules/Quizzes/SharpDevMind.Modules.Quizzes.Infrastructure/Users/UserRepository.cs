@@ -11,8 +11,8 @@ internal sealed class UserRepository(QuizzesDbContext context) : IUserRepository
         return await context.Users.SingleOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
-    public void Insert(User customer)
+    public void Insert(User user)
     {
-        context.Users.Add(customer);
+        context.Users.Add(user);
     }
 }

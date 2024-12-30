@@ -10,7 +10,7 @@ internal sealed class CreateAuthorCommandHandler(IAuthorRepository authorReposit
 {
     public async Task<Result> Handle(CreateAuthorCommand request, CancellationToken cancellationToken)
     {
-        var author = Author.Create(request.AuthorId, request.Email, request.FirstName, request.LastName);
+        var author = Author.Create(request.AuthorId, request.FirstName, request.LastName);
 
         authorRepository.Insert(author);
 

@@ -18,7 +18,6 @@ internal sealed class GetAuthorByIdQueryHandler(IDbConnectionFactory dbConnectio
             $"""
              SELECT
                  id AS {nameof(AuthorResponse.Id)},
-                 email AS {nameof(AuthorResponse.Email)},
                  first_name AS {nameof(AuthorResponse.FirstName)},
                  last_name AS {nameof(AuthorResponse.LastName)}
              FROM comments.authors

@@ -18,7 +18,6 @@ internal sealed class GetUserByIdQueryHandler(IDbConnectionFactory dbConnectionF
             $"""
              SELECT
                  id AS {nameof(UserResponse.Id)},
-                 email AS {nameof(UserResponse.Email)},
                  first_name AS {nameof(UserResponse.FirstName)},
                  last_name AS {nameof(UserResponse.LastName)}
              FROM quizzes.users

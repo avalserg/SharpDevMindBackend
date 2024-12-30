@@ -4,6 +4,6 @@ namespace SharpDevMind.Modules.Posts.Domain.Authors;
 
 public static class AuthorErrors
 {
-    public static Error NotFound(Guid customerId) =>
-        Error.NotFound("Author.NotFound", $"The author with the identifier {customerId} was not found");
+    public static Error NotFound(Guid authorId) =>
+        Error.NotFound("Author.NotFound", $"The author with the identifier {authorId} was not found");
 }

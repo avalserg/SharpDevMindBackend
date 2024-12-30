@@ -18,7 +18,6 @@ public sealed class Post : Entity
         {
             PostId = postId,
             AuthorId = authorId,
-
         };
     }
 

@@ -15,7 +15,6 @@ public sealed class UserRegisteredIntegrationEventConsumer(ISender sender)
     {
         Result result = await sender.Send(new CreateAuthorCommand(
             context.Message.UserId,
-            context.Message.Email,
             context.Message.FirstName,
             context.Message.LastName));
 

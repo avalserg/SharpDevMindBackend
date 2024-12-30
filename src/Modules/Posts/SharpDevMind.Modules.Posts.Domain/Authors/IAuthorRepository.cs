@@ -4,5 +4,5 @@ public interface IAuthorRepository
 {
     Task<Author?> GetAsync(Guid id, CancellationToken cancellationToken = default);
 
-    void Insert(Author customer);
+    void Insert(Author author);
 }

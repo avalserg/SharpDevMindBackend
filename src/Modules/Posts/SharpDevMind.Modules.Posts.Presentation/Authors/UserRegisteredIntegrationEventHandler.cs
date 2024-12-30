@@ -17,7 +17,6 @@ internal sealed class UserRegisteredIntegrationEventHandler(ISender sender)
         Result result = await sender.Send(
             new CreateAuthorCommand(
                 integrationEvent.UserId,
-                integrationEvent.Email,
                 integrationEvent.FirstName,
                 integrationEvent.LastName),
             cancellationToken);

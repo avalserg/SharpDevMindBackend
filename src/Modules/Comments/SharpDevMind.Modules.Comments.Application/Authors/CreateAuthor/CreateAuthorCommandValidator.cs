@@ -7,7 +7,6 @@ internal sealed class CreatePostCommandValidator : AbstractValidator<CreateAutho
     public CreatePostCommandValidator()
     {
         RuleFor(c => c.AuthorId).NotEmpty();
-        RuleFor(c => c.Email).EmailAddress();
         RuleFor(c => c.FirstName).NotEmpty();
         RuleFor(c => c.LastName).NotEmpty();
     }

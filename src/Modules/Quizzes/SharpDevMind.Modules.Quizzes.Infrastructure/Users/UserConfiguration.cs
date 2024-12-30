@@ -17,6 +17,5 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(c => c.LastName).HasMaxLength(200);
 
-        builder.Property(c => c.Email).HasMaxLength(300);
     }
 }
